@@ -1,0 +1,13 @@
+node
+{
+    stage('gitclone')
+    {
+       git 'https://github.com/hareesh-boddapati/java-web-app-docker.git' 
+    }
+    stage('build the packege')
+    {
+     def mavenHome = tool name: "mavenbuild"
+     sh "${mavenHome}/bin/mvn package" 
+    }
+}
+
